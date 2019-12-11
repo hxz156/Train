@@ -1,0 +1,1 @@
+[2019-10-26 06:52:25,722] TRACE [Controller id=0 epoch=5] Received response {error_code=0} for request UPDATE_METADATA with correlation id 0 sent to broker zhanghauandembp.fios-router.home:9092 (id: 0 rack: null) (state.change.logger)

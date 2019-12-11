@@ -1,0 +1,10 @@
+package com.mercury.java_core;
+
+public class Interview {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

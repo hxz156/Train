@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;spring.mvc.demo&apos; to &apos;spring-mvc-demo&apos;" description="Rename resource &apos;spring.mvc.demo&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="/spring.mvc.demo" name="spring-mvc-demo" stamp="1571256450098" updateReferences="true"/>
+</session>

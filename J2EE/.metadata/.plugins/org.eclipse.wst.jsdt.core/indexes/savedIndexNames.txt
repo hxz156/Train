@@ -1,0 +1,8 @@
+INDEX VERSION 1.3+/Users/zhanghaoxuan/Documents/Training/J2EE/.metadata/.plugins/org.eclipse.wst.jsdt.core/indexes
+1300846463.index
+557173393.index
+1651246447.index
+1361364107.index
+62246857.index
+570720958.index
+3030522716.index

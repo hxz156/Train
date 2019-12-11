@@ -1,0 +1,134 @@
+<!-- 9/26/2019 -->
+<!DOCTYPE html>
+<html>
+<head>
+	<title>jQuery demo</title>
+	<link rel="stylesheet" type="text/css" href="./bootstrap.min.css">
+
+	<script type="text/javascript" src="./jquery-3.3.1.js"></script>
+
+	<script type="text/javascript">
+		// jquery 
+		$(document).ready(function() {
+			$('#load').click(function() {
+				// send GET /users
+				// jquery 发送的 AJAX request
+				// 拿到数据然后执行一个方法
+				$.get('http://localhost:8080/java-web-demo/users')
+				// 这个链接和 UserServlet 绑定好的，向里面发送请求。
+					.then(function(data) {
+						// success callback
+						// will be executed after ajax request is returned 
+						// successfully.
+						console.log(data);
+
+						// convert JSON string to js objects
+						// users is array of users
+						var users = JSON.parse(data);
+						console.log(users);
+						//================================
+						// for(var key in users){
+						// 	$('#list')
+						// 	.append('<li>' + users[key].name
+						// 	 + '-' + 
+						// 	 users[key].age + '</li>');
+						// }
+						
+						// $ 创建一个 jQuery 对象，然后直接就能在对象上面操作
+						var $list = $('#list');
+						users.forEach(function(user) {
+							// 在string前面加$，就变成了 jquery 对象
+							// 然后直接就能运用.css 等方法进行操作。
+							var $user = $('<li>' + user.name
+														 + '-' + 
+														 user.age + '</li>');
+							$user.css('color', 'gray');
+
+							$list
+							.append($user);
+						});
+
+					});
+			});
+
+			$('#add').click(function(event) {
+				// prevent default behavior of submit button which send
+				// from to action and reload page.
+				// 阻止默认的 submit 马上刷新。因为刷新需要重新记载页面，
+				// 这里并不希望重新加载页面。
+				event.preventDefault();
+
+				// get user's input for a new sample
+				var sample = {
+					// 拿到用户输入的值。组成一个对象。
+					name : $('#add_name').val(), // val is a function
+					age : $('#add_age').val()
+				};
+				//send POST request to "/users" with new sample
+				// $.post() 这次不用, based on $.ajax. syntax sugar.
+				// $.ajax() can be used to send: post, get, delete, put.
+				// 接受一个对象，里面：方法，对象，平台。
+				$.ajax({
+					url : "http://localhost:8080/java-web-demo/users",
+					method : 'POST',
+					data : sample
+				}).then(function(data) { // 拿到返回的结果 Eclipse(UserServlet)
+					var response = JSON.parse(data); // 把结果转换成我们的数据。
+					// success, message
+					if (response.success) {
+						$('#add_msg').css('color', 'green');
+					} else {
+						$('#add_msg').css('color', 'red');
+					}
+					$('#add_msg').text(response.message);
+				});
+			});
+		});
+
+
+	</script>
+</head>
+
+<body class="container">
+<h1>Sample Demo</h1>
+<hr>
+<p>
+	<button id="load" class="btn btn-primary">Load Sample Users</button>
+</p>
+
+<ul id="list">
+	
+</ul>
+
+<hr>
+
+<form>
+	<div class="form-group">
+        <label>
+            Name: <input class="form-control" type="text" id="add_name">
+        </label>
+    </div>
+    <div class="form-group">
+        <label>
+            Age: <input class="form-control" type="number" id="add_age">
+        </label>
+    </div>
+    <p>
+        <button class="btn btn-primary" type="submit" id="add">Submit</button>
+    </p>
+
+    <p id="add_msg">
+    	
+    </p>
+</form>
+
+</body>
+</html>
+
+
+
+
+
+
+
+

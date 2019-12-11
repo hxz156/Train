@@ -1,0 +1,30 @@
+package com.mercury.java_core.colletion;
+
+import java.util.Map;
+import java.util.Set;
+import java.util.TreeMap;
+
+public class WalmartCode {
+
+	public static void main(String[] args) {
+		
+		System.out.println(output("dddcc"));
+
+	}
+	public static String output(String str) {
+		Map<Character, Integer> treeMap = new TreeMap<>();
+		StringBuilder sb = new StringBuilder();
+		for (char c: str.toCharArray()) {
+			treeMap.put(c, treeMap.getOrDefault(c, 0) + 1);
+		}
+		
+		Set<Map.Entry<Character, Integer>> entrySet = treeMap.entrySet();
+		for(Map.Entry<Character, Integer> entry: entrySet){
+			for(int i=0; i<entry.getValue(); i++){
+				sb.append(entry.getKey());
+			}
+		}
+		return sb.toString();
+	}
+
+}

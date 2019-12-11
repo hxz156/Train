@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename type &apos;com.mercury.java_core.java8.WalmartStream&apos; to &apos;InterviewStream&apos;&#x0A;- Original project: &apos;java-core&apos;&#x0A;- Original element: &apos;com.mercury.java_core.java8.WalmartStream&apos;&#x0A;- Renamed element: &apos;com.mercury.java_core.java8.InterviewStream&apos;&#x0A;- Update references to refactored element&#x0A;- Update textual occurrences in comments and strings" description="Rename type &apos;WalmartStream&apos;" flags="589830" id="org.eclipse.jdt.ui.rename.type" input="/src\/test\/java&lt;com.mercury.java_core.java8{WalmartStream.java[WalmartStream" matchStrategy="1" name="InterviewStream" qualified="false" references="true" similarDeclarations="false" stamp="1575868386727" textual="false" version="1.0"/>
+</session>

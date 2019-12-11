@@ -1,0 +1,22 @@
+1568063839255	Rename type 'MyCheckedException'
+1568064022457	Rename type 'CheckJEception'
+1568084318093	Rename method 'reverseStack'
+1568084727475	Rename field 'stack1'
+1568084749274	Rename field 'stack2'
+1568085534292	Rename method 'reverseDeque'
+1568085847947	Rename field 'deque1'
+1568085859306	Rename field 'deque2'
+1568127086570	Rename local variable 'fis'
+1568127100658	Rename local variable 'fos'
+1568150336470	Rename method 'Fly'
+1568324407315	Copy compilation unit
+1568324419104	Delete element
+1568324433655	Copy compilation unit
+1568348310112	Copy compilation unit
+1568382890347	Copy compilation unit
+1568382998353	Delete element
+1568383104708	Copy compilation unit
+1568383582875	Delete element
+1568396863429	Copy compilation unit
+1568397058388	Copy compilation unit
+1568405099642	Rename type 'FactorialCalculate'

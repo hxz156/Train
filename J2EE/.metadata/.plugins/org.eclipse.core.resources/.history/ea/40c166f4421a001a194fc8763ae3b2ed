@@ -1,0 +1,10 @@
+package com.mercury.java_core.java8;
+
+public class InterviewStream {
+
+	public static void main(String[] args) {
+		
+
+	}
+
+}

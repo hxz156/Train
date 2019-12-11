@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Demo01</title>
+	<link rel="stylesheet" type="text/css" href="./bootstrap.min.css">
+	<script type="text/javascript" src="./jquery-3.3.1.js"></script>
+
+	<script type="text/javascript">
+		// 3. jQuery way to wait for all DOM objects are loaded.
+		$(document).ready(function() {
+			var firstPara = document.getElementById('x');
+			console.dir(firstPara); // DOM object
+			console.dir(firstPara instanceof HTMLElement); // true
+
+			// jQuery selectors: select HTML element as DOM object
+			// wrapped in jQuery object. syntax: $(selector)
+			// Id selector
+			console.log($('#x')); // jQuery object: array-like object 
+									// which contains all the DOM objects
+									// matching the selector
+									// 找到所有id是 x 的元素，是一个 array
+			console.log($('#x')[0] === firstPara); // true
+			console.log($('#x') instanceof HTMLElement); //false 因为这是一个
+			// jQuery 元素，里面包含了很多 HTMLElement
+
+			// class selector:
+			console.log($('.y'));
+
+			// element/tag selector:
+			console.log($('p'));
+
+			// attribute selector:
+			console.log($('a[href="http://www.google.com"]'));
+				// 选择 a 元素，属性为这个链接的元素
+
+			// start with attribute selector
+			console.log($('a[href^="http:"]'));
+
+			// end with attribute selector
+			console.log($('a[href$=".hk"]'));
+
+			// contains attribute selector
+			console.log($('a[href*="google"]'));
+
+			// descendent
+			console.log($('div.container h4')); // 选出 div.container 之下
+			// 所有的 h4， 儿子，孙子等等
+
+			// child 
+			console.log($('div.container > h4')); // direct child
+			// 只有下面一层，儿子。再往下面不行。
+
+			// general sibling combinator
+			console.log($('div ~ h4'));
+			// h4 前面的（同一层） sibling 中有 div 就行
+
+			// adjacent sibling
+			console.log($('div + h4'));
+			// direct sibling, 前面是否有。
+			//  <hr>
+    		//	<h4>This is a h4 tag</h4>
+    		// 这个 h4 前面是 hr 就不能被选出来.
+
+    		// combined
+    		console.log($('div,h4'));
+    		// 所有的 div 和 所有的 h4
+
+    		// pseudo ()
+    		console.log($('ul li:first')); // first li in ul
+    		console.log($('ul li:last'));
+    		console.log($('ul li:even'));
+    		console.log($('ul li:odd'));
+
+    		// select 2nd li
+    		console.log($('ul li:nth-child(2n)')); // 1 based index 从 1 开始
+    		// seach all elements under ul, find the 3rd child and check if it 
+    		// is li. 如果第三个不是 li，是 p，那么选不出来。
+    		// nth-child: select cuild then check type
+    		// 如果我们就要第三个 li，如果中间加了多个p，需要更改数字，不方便。
+    		console.log($('ul li:nth-child(3)'));
+
+    		// nth-of-type: select type -> check child
+    		console.log($('ul li:nth-of-type(3)'));
+
+    		// 3. jquery 简短的命令：
+    		// $('#add_li').on('click',function(){
+
+    		// });
+    		$('#add_li').click(function() {
+    			// $('<li>New item</li>') -> create new li element
+    			// $('ul').append('<li>New item</li>'); // 只要带 String 进去就行
+
+    			// 同样有反过来的方法，效果一样。
+    			// 对象是 jquery，prefer 用$开头。方便读懂代码
+    			var $newItem = $('<li>New item</li>');
+    			// $newItem.css('color','red').appendTo($('ul'));
+
+    			// prepend 在 ul 的最前面加
+    			// $('ul').prepend($newItem);
+    			//--------------------------------------
+    			// $('ul').after($newItem);
+                // 加在 ul 的下面的外层，不在ul里面
+
+    			// $('#x').css('fontSize','24pt').css('color', 'blue');
+    			// 如果有多个属性，可以传递一个对象。
+    			// $('#x').css({
+    			// 	fontSize: '24pt',
+    			// 	color: 'blue'
+    			// });
+
+//=================================================================
+
+    			// 拿到第ul 的内容：
+    			// output structure as a string
+    			console.log($('ul').html());
+    			// only output the text content
+    			console.log($('ul').text());
+
+    			// text 如果有参数就是去改变 x 里面的内容
+    			$('#x').text('New contents');
+
+ //==================================================================
+ 				// $('.container > h1').hide(3000);
+ 				// toggle between hiding and showing an element
+ 				$('div.container > .y1').toggle(2000);
+
+ 				// .attr() method to dynamically set or change the value 
+ 				// of href attribute of a link or anchor tag. 
+
+ 				// .attr()
+                // $("button").click(function(){
+                //     $("img").attr("width","500");
+                // });
+
+                // .find(),
+                // Return all <span> elements that are descendants of <ul>:
+                // $(document).ready(function(){
+                //   $("ul").find("span").css({"color": "red", "border": "2px solid red"});
+                // });
+
+
+                //.next(), 
+                // Return the next sibling element of each <li> element with 
+                // class name "start"
+                // $(document).ready(function(){
+                //   $("li.start").next().css({"color": "red", "border": "2px solid red"});
+                // });
+
+
+                //.prev(), 
+                // Return the previous sibling element of each <li> element with 
+                // class name "start":
+                // $(document).ready(function(){
+                //   $("li.start").prev().css({"color": "red", "border": "2px solid red"});
+                // });
+
+
+                //.parents(), 
+                // Return all ancestor elements of <span>
+                // $(document).ready(function(){
+                //     $("span").parents().css({"color": "red", "border": "2px solid red"});
+                // });
+
+
+                // .children(), 
+                // Return elements that are direct children of <ul>:
+                // $(document).ready(function(){
+                //   $("ul").children().css({"color": "red", "border": "2px solid red"});
+                // });
+
+
+
+                //.closest()
+                // Return the first ancestor of <span>, that is an <ul> element:
+                // $(document).ready(function(){
+                //   $("span").closest("ul").css({"color": "red", "border": "2px solid red"});
+                // });
+
+
+                // .filter()
+                // Return all <p> elements with class name "intro":
+                // $("p").filter(".intro")
+
+
+
+                // .show(), hide(), .toggle()
+
+                // .eq()返回 jQuery 元素, .get()直接拿到 DOM 对象
+                // .get() == $('p')[0]
+                // 只有jQuery 对象才能用上面的方法：.find(), .next(), .prev()
+
+//====================================================================
+				// jQuery -> DOM object
+				// get(), [index]
+
+				// DOM -> jQuery
+				// $(document.getElementById('x')).attr("class");
+//===================================================================
+				var p1 = document.getElementById('x');
+				var p2 = document.getElementById('x');
+				console.log(p1 === p2); // true
+
+				var $p1 = $(document.getElementById('x'));
+				var $p2 = $(document.getElementById('x'));
+				// DOM 方法很难记，用jQuery方法必须是jQuery对象
+				// 所以要把 DOM 转换成 jQuery 对象
+				console.log($p1 === $p2); // false
+
+    		});
+
+
+		});
+	</script>
+</head>
+<body>
+<div class="container">
+    <h1>jQuery Selectors</h1>
+    <hr>
+    <h2>Basic Selectors</h2>
+    <p id="x" class="y">First Paragraph</p>
+    <p class="y y1">Second Paragraph</p>
+    <div class="y">Another Second Paragraph</div>
+    <hr>
+    <h4>This is a h4 tag</h4>
+    <div>
+        <button class="btn btn-primary" id="btn1">Select</button>
+        <button class="btn btn-primary" id="btn2">Update</button>
+        <h4>This is a h4 tag in div</h4>
+    </div>
+    <hr>
+    <h2>Select Attribute</h2>
+    <p>
+        <a href="http://www.google.com" target="_blank" data-foo="bar">
+        Google
+        </a>
+        <a href="https://www.google.com.hk" target="_blank" data-foo="bar">
+        Google HK
+        </a>
+        <a href="http://www.google.com.hk" target="_blank" data-foo="bar">
+        Google HK(unsecure)
+        </a>
+    </p>
+    <div id="buttons-div">
+        <button class="btn btn-primary" id="btn3">Read Link</button>
+        <button class="btn btn-primary" id="btn4">Update Link</button>
+        <button class="btn btn-primary" id="toggle" data-color="blue">Toggle Background</button>
+    </div>
+</div>
+<h4>This is a h4 tag outside container</h4>
+<ul id="items">
+    <li>Java</li>
+    <li>Java EE</li>
+    <p>test</p>
+    <li>Spring</li>
+    <li>Hibernate</li>
+    <li>Struts</li>
+</ul>
+<p>
+    <button class="btn btn-primary" id="add_li">Add Li</button>
+</p>
+</body>
+</html>
+
+
+
+
+
+
+
+

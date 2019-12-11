@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Demo02</title>
+	<link rel="stylesheet" type="text/css" href="./bootstrap.min.css">
+	<style type="text/css">
+        html, body {
+            height: 100%;
+        }
+        #outer {
+            width: 300px;
+            height: 300px;
+            border: 2px solid red;
+        }
+        .container {
+            border: 2px dotted black;
+        }
+    </style>
+
+	<script type="text/javascript" src="./jquery-3.3.1.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function() {
+			function display(event) {
+				console.log("Phase: ", event.eventPhase);
+				console.log("Target: ", event.target.id);
+				console.log("Current Target: ", event.currentTarget.id);
+			}
+
+			$('#inner').on('click', function(event) { 
+				// inner's click event listener handler
+				console.log('******** ib **********',event);
+				display(event);
+
+				// how to stop event propagate from the same level?
+				event.stopImmediatePropagation();
+
+				// // how to stop event propagate to next level?
+				// // 这一层一定都会执行，下一层才会停止
+				// event.stopPropagation();
+			});
+
+			$('#outer').on('click', function(event) { 
+				// outer's click event listener handler
+				console.log('******** ob **********',event);
+				display(event);
+
+				// // how to stop event propagate to next level?
+				// // 这一层一定都会执行，下一层才会停止
+				// event.stopPropagation();
+
+			});
+
+			$('#container').on('click', function(event) { 
+				// outer's click event listener handler
+				console.log('******** cb **********',event);
+				display(event);
+			});
+
+			$('#body').on('click', function(event) { 
+				// outer's click event listener handler
+				console.log('******** bb **********',event);
+				display(event);
+			});
+
+			// how to create a event listener for capturing phase?
+			// Use DOM function
+			document.getElementById('body').addEventListener('click',
+				function(event) {
+					console.log("********* bc *********", event);
+					display(event);
+
+			}, true); // true means this event listener is used for capturing phase
+			document.getElementById('container').addEventListener('click',
+				function(event) {
+					console.log("********* cc *********", event);
+					display(event);
+
+			}, true); // true means this event listener is used for capturing phase
+			document.getElementById('outer').addEventListener('click',
+				function(event) {
+					console.log("********* oc *********", event);
+					display(event);
+
+			}, true); // true means this event listener is used for capturing phase
+			document.getElementById('inner').addEventListener('click',
+				function(event) {
+					console.log("********* ic *********", event);
+					display(event);
+
+			}, true); // true means this event listener is used for capturing phase
+		});
+		
+	</script>
+</head>
+
+
+<body id="body">
+<div class="container" id="container">
+    <div id="outer">
+        <button id="inner" class="btn btn-primary">Click Me</button>
+    </div>
+</div>
+</body>
+
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

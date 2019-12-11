@@ -1,0 +1,16 @@
+package com.mercury.java_core;
+
+interface Sy{
+	void getSu();
+}
+abstract class Pa implements Sy{}
+
+class Bl extends Pa{
+	public void getSu(){;};
+}
+
+class So extends Bl{
+	void getSu(int s){;};
+}
+
+

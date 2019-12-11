@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Test</title>
+	<link rel="stylesheet" type="text/css" href="./test.css">
+	<style type="text/css">
+		#p1{
+			font-size: 6pt;
+		}
+		.yellow-p{
+			background-color: yellow;
+		}
+	</style>
+</head>
+
+<body>
+<h1 id="my_h1">Test HTML and CSS</h1>
+
+<!-- Block elements: start in a new line and push next element to
+next line. -->
+<!-- div, ul/ol, table, h1/h2,  -->
+<!-- HTML5 semantic element: section, header, footer, article,
+main, nav -->
+<!-- p: HTML element -->
+<!-- id: HTML element attribute -->
+<!-- p1: HTML element attribute value-->
+<!-- font-size: CSS property -->
+<!-- 24pt: CSS property value -->
+<p id="p1" class="yellow-p">This is a paragraph.</p>
+<p class="yellow-p" style="font-size: 24pt; color: red;">This is another paragraph.</p>
+
+<!-- Inline elements: stay in single line -->
+<span>This is span 1.</span>
+<span>This is span 2.</span>
+<hr>
+<!-- type: text, number, email, date, password -->
+<form>
+<input type="password" name="count">
+<button type="submit">Submit</button>
+</form>
+
+<hr>
+<br>
+
+<script type="text/javascript">
+	function changeTitle() {
+		var myH1Elem = document.getElementById("my_h1");
+		myH1Elem.innerHTML = "Test Javascript";
+	}
+	console.dir(document.getElementById("p1")); // 打出对象的信息
+												// p1's DOM object
+	function changeFirstPBigger() {
+		var firstPara = document.getElementById("p1"); // DOM object
+		// normalize: font-size -> fontSize
+		firstPara.style.fontSize = "36pt";
+	}
+
+	function removeSpan2() {
+		var allSpans = document.getElementsByTagName("span");
+		var span2Element = allSpans[1];
+		span2Element.remove();
+	}
+
+	// 太麻烦
+	function addP3() { 
+		// <p>This is p3.<p>
+		var p3Element = document.createElement('p');
+		var p3Text = document.createTextNode('This is p3.');
+		p3Element.appendChild(p3Text);
+		var bodyElem = document.getElementsByTagName('body')[0];
+		bodyElem.appendChild(p3Element);
+	}
+	window.x = 1; // Global Object. In browser: window
+	setTimeout(function() {
+		alert('after 2s!')
+	},2000);
+
+
+
+	// problem: JS executes before button is added to DOM tree
+	// 1. solution: execute JS after all DOM objects are loaded
+	// 速度太慢，等到所有元素都 loaded, 不好。图片，视频加载很慢。
+	window.onload = function() {
+		// onload function will be automatically executed after all DOM
+		// objects and other resources(images, audios, videos) are loaded
+		// another way of specify JS codes to run when button is clicked.(pured JS)
+		// click on button -> click event(object)
+		document.getElementById("mbtn").addEventListener('click',function() {
+			alert('Good Morning!');
+		});
+	};
+
+	// 2. execute codes only after all the DOM objects are loaded.
+	// 不用等图片，视频加载完毕。!
+	// 但是需要记忆的命令太长。jquery 有更简短的命令。
+	window.addEventListener('DOMContentLoaded', function() {
+		// 当 dom objects 加载完毕后，就会监听到这个文件。
+		document.getElementById("nbtn").addEventListener('click',function() {
+			alert('Alert nbtn good night!');
+		});
+	});
+
+</script>
+<p>
+	<button onclick="changeTitle();">Change title to "Test Javascript"</button>
+	<button onclick="changeFirstPBigger();">Set first paragraph bigger</button>
+	<button onclick="alert('hello');">Create a popup to display hello</button>
+	<button onclick="removeSpan2()">Remobe span 2</button>
+	<button onclick="addP3();">Add paragraph 3 at end of body</button>
+	<!-- 上面的把 onclick 放在 button 里面，代码错误检测不出来。把 click 放进 JS 里面更好 -->
+
+	<button id="mbtn">Alert Morning!</button>
+	<button id="nbtn">Alert nbtn good night</button>
+</p>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

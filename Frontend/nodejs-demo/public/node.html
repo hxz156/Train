@@ -1,0 +1,112 @@
+<!-- 9/27/2019 -->
+<!-- http://localhost:3000/node.html -->
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Node Demo</title>
+	<link rel="stylesheet" type="text/css" href="./bootstrap.min.css">
+	<script type="text/javascript" src="./jquery-3.3.1.js"></script>
+
+	<script type="text/javascript">
+		$(document).ready(function() {
+
+			// 防止代码重复，放进一个 function 里面
+			function loadUsers(){ 
+				// 因为页面本来就在3000，所以不需要写全部
+				$.get('/users') // 往server发送一个请求
+					.then(function(data) {
+						var users = data;
+						var $list = $('#list');
+						$list.empty(); // 防止每次点击都积累，这样只是每次都刷新
+						users.forEach(function(user) {
+							var $li = $('<li>' + user.name + '-' + user.age
+								+ '</li>');
+							$li.click(function() { // 点击名字，自动填满信息。
+								//					给它的click特性上面加一个function
+								$('#update_name').val(user.name);
+								$('#update_age').val(user.age);
+								
+							});
+							$list.append($li);
+						});
+					});
+			}
+
+			$('#load').click(function() {
+				loadUsers();
+			});
+
+			$('#update').click(function(event) {
+				event.preventDefault(); // 防止 submit 刷新
+				$.ajax({
+					method : 'PUT',
+					url : '/users',
+					data : {
+						name : $('#update_name').val(),
+						age: $('#update_age').val()
+					}
+				}).then(function(data) {
+					console.log(data);
+					// $('#load').click(); //更新之后，自动点击。方法一
+					loadUsers(); //更新之后，自动点击。方法二
+				});
+			});
+			// method : 'DELETE',
+			// url : '/users/' + name,
+
+			
+		});
+
+	</script>
+</head>
+
+<body>
+<h1>Nodejs Server App</h1>
+
+<ul id="list">
+	
+
+</ul>
+<p>
+	<button id="load">Load</button>
+
+</p>
+
+<form>
+    <p>
+        Name: <input type="text" id="update_name" disabled>
+    </p>
+    <p>
+        Age: <input type="number" id="update_age">
+    </p>
+    <button type="submit" id="update">Update</button>
+</form>
+
+
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

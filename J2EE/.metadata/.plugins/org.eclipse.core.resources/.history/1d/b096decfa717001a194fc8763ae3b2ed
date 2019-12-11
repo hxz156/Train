@@ -1,0 +1,10 @@
+package com.mercury.java_core.colletion;
+
+public class WalmartCode {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

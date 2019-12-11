@@ -1,0 +1,4 @@
+#Tomcat publish data
+#Thu Oct 17 12:20:54 EDT 2019
+org.eclipse.jst.j2ee.server\:/binary\:/Users/zhanghaoxuan/.m2/repository/org/springframework/spring-web/3.2.10.RELEASE/spring-web-3.2.10.RELEASE.jar=/Users/zhanghaoxuan/Documents/Training_Misc/apache-tomcat-8.5.27/webapps/spring-mvc-demo/WEB-INF/lib/spring-web-3.2.10.RELEASE.jar
+org.eclipse.jst.j2ee.server\:spring-mvc-demo=/Users/zhanghaoxuan/Documents/Training_Misc/apache-tomcat-8.5.27/webapps/spring-mvc-demo

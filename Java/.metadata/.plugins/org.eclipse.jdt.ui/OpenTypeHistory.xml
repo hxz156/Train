@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<typeInfoHistroy>
+<typeInfo handle="=java-core/src\/main\/java&lt;com.mercury.java_core.oop{Parent.java[Parent" modifiers="1" timestamp="1571533393000"/>
+<typeInfo handle="=java-core/src\/main\/java&lt;com.mercury.java_core.generics{Chair.java[Chair" modifiers="1" timestamp="1567785678000"/>
+<typeInfo handle="=java-core/\/Library\/Java\/JavaVirtualMachines\/jdk1.8.0_161.jdk\/Contents\/Home\/jre\/lib\/rt.jar&lt;java.util(Comparator.class[Comparator" modifiers="1537" timestamp="1513730554000"/>
+<typeInfo handle="=java-core/src\/main\/java&lt;com.mercury.java_core.oop{User.java[User" modifiers="1" timestamp="1568499927000"/>
+<typeInfo handle="=java-core/\/Library\/Java\/JavaVirtualMachines\/jdk1.8.0_161.jdk\/Contents\/Home\/jre\/lib\/rt.jar&lt;java.lang(AutoCloseable.class[AutoCloseable" modifiers="1537" timestamp="1513730554000"/>
+<typeInfo handle="=java-core/\/Library\/Java\/JavaVirtualMachines\/jdk1.8.0_161.jdk\/Contents\/Home\/jre\/lib\/rt.jar&lt;java.io(Externalizable.class[Externalizable" modifiers="1537" timestamp="1513730554000"/>
+<typeInfo handle="=java-core/\/Library\/Java\/JavaVirtualMachines\/jdk1.8.0_161.jdk\/Contents\/Home\/jre\/lib\/rt.jar&lt;java.lang(Thread.class[Thread" modifiers="33" timestamp="1513730554000"/>
+<typeInfo handle="=java-core/\/Library\/Java\/JavaVirtualMachines\/jdk1.8.0_161.jdk\/Contents\/Home\/jre\/lib\/rt.jar&lt;java.lang(Runnable.class[Runnable" modifiers="1537" timestamp="1513730554000"/>
+<typeInfo handle="=java-core/\/Library\/Java\/JavaVirtualMachines\/jdk1.8.0_161.jdk\/Contents\/Home\/jre\/lib\/rt.jar&lt;java.util.concurrent(Callable.class[Callable" modifiers="1537" timestamp="1513730554000"/>
+<typeInfo handle="=java-core/src\/test\/java&lt;com.mercury.java_core.java8{Flyable.java[Flyable" modifiers="513" timestamp="1571511686000"/>
+</typeInfoHistroy>

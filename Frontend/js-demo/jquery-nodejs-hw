@@ -1,0 +1,31 @@
+// <select>
+//   <option value="name">Name</option>
+//   <option value="author">Author</option>
+//   <option value="min">Min</option>
+//   <option value="max">Max</option>
+// </select>
+// <input type="text" id="filterInput">
+// var selectedOption = 'name';
+// $('select').on('change', function() {
+//   selectedOption = $('select').val();
+// });
+// var filterText = '';
+// $('#filterInput').on('input', function() {
+//   filterText = $('#filterInput').val();
+// });
+// function displayBooks(books) {
+  
+// }
+// var books = [];
+// $('#filterBtn').click(function() {
+//     var filterBooks = books.filter(function(book) {
+//         if (selectedOption === 'name'
+//           || selectedOption === 'author') {
+//             return book[selectedOption].indexOf(filterText) !== -1;
+//         } else if(selectedOption === 'min'){
+//           return book.price >= +filterText;
+//         } else if(selectedOption === 'max'){
+//           return book.price <= +filterText;
+//         }
+//     });
+// });

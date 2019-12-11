@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="
+        http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+    <bean id="cpu1" class="com.mercury.spring_ioc.bean.CPU">
+    		<property name="brand" value="Intel"/>
+    		<property name="model" value="i7"/>
+    </bean>
+    <bean id="cpu2" class="com.mercury.spring_ioc.bean.CPU">
+    		<property name="brand" value="AMD"/>
+    		<property name="model" value="a3"/>
+    </bean>
+    <bean id="cpu" class="com.mercury.spring_ioc.bean.CPU">
+    		<property name="brand" value="Huawei"/>
+    		<property name="model" value="h5"/>
+    </bean>
+    
+    <bean id="computer1" class="com.mercury.spring_ioc.bean.Computer">
+    		<property name="cpu" ref="cpu2"/>
+    </bean>
+    <bean id="computer2" class="com.mercury.spring_ioc.bean.Computer">
+    		<constructor-arg index="0" ref="cpu1"/>
+    </bean>
+    <bean id="computer3" class="com.mercury.spring_ioc.bean.Computer" autowire="byName">
+    		
+    </bean>
+    
+    <!-- how to create a bean of singleton class: -->
+    <!-- <bean id="sg" class="com.mercury.Singleton" factory-method="getInstance" -->
+</beans>
+
+
+
+
+
+
+
+
+
+
+
